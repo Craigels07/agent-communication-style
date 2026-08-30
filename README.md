@@ -1,4 +1,4 @@
-# Fixing Opus 5: System Prompt Engineering
+# Agent Communication Style
 
 > **One system prompt turns Opus 5 from a verbose smartass into a precise senior engineering partner.**
 > For mid to senior engineers running frontier coding agents (Claude Code, Pi, or any harness with an appendable system prompt).
@@ -158,7 +158,7 @@ The `pi-*` recipes run the identical experiment in the [Pi coding agent](https:/
 ## Folder structure
 
 ```
-fixing-smartass-opus-5/
+agent-communication-style/
 ├── README.md                            # this file
 ├── justfile                             # launch + compare recipes
 ├── communication_style.md               # the system prompt — the entire product

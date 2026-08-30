@@ -1,8 +1,8 @@
 ---
-description: Install Fixing Opus 5 — verify just, claude, herdr, jq, and pi, then confirm the compare loop is ready
+description: Install Agent Communication Style — verify just, claude, herdr, jq, and pi, then confirm the compare loop is ready
 ---
 
-# Install Fixing Opus 5: System Prompt Engineering
+# Install Agent Communication Style
 
 ## Purpose
 
