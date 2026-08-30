@@ -12,7 +12,7 @@ Set up this repo for the system prompt compare loop. Everything here is a CLI to
 
 SOURCE_REPO: The directory this command is running from
 SYSTEM_PROMPT: `communication_style.md`
-BENCHMARK_DOC: `ai_docs/zuck-thefutureisforeveryone.md`
+BENCHMARK_DOC: `ai_docs/brooks-no-silver-bullet.md`
 
 ## Instructions
 

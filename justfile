@@ -23,7 +23,7 @@ compare name:
     
     # setup prompt
     DIR="{{justfile_directory()}}"
-    PROMPT="explain zucks ai manifesto: $DIR/ai_docs/zuck-thefutureisforeveryone.md"
+    PROMPT="explain the brooks no silver bullet paper: $DIR/ai_docs/brooks-no-silver-bullet.md"
     
     # clear previous herdr
     herdr workspace list | jq -r '.result.workspaces[] | select(.label == "compare-{{name}}") | .workspace_id' | while read -r OLD; do herdr workspace close "$OLD"; done
@@ -62,7 +62,7 @@ pi-compare name:
 
     # setup prompt
     DIR="{{justfile_directory()}}"
-    PROMPT="explain zucks ai manifesto: $DIR/ai_docs/zuck-thefutureisforeveryone.md"
+    PROMPT="explain the brooks no silver bullet paper: $DIR/ai_docs/brooks-no-silver-bullet.md"
 
     # clear previous herdr
     herdr workspace list | jq -r '.result.workspaces[] | select(.label == "pi-compare-{{name}}") | .workspace_id' | while read -r OLD; do herdr workspace close "$OLD"; done

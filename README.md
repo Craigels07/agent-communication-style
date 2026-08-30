@@ -135,7 +135,7 @@ The examples section is training data you author. Take a response you liked (fro
 
 ## The compare loop
 
-Every change to the system prompt gets verified side by side against the stock model on the same task: summarizing a long blog post ([`ai_docs/zuck-thefutureisforeveryone.md`](ai_docs/zuck-thefutureisforeveryone.md)).
+Every change to the system prompt gets verified side by side against the stock model on the same task: summarizing a long technical paper ([`ai_docs/brooks-no-silver-bullet.md`](ai_docs/brooks-no-silver-bullet.md) — Fred Brooks, *No Silver Bullet*, 1986). The paper is the benchmark because it has a skeleton a summary either keeps or visibly loses: one core claim, four essential difficulties, nine rejected silver bullets, four promising attacks.
 
 ```
 just                    # list all recipes
@@ -163,7 +163,7 @@ agent-communication-style/
 ├── justfile                             # launch + compare recipes
 ├── communication_style.md               # the system prompt — the entire product
 ├── ai_docs/
-│   └── zuck-thefutureisforeveryone.md   # long blog post used as the comparison benchmark
+│   └── brooks-no-silver-bullet.md       # long technical paper used as the comparison benchmark
 ├── images/                              # animated SVG diagrams (numbered for narrative order)
 └── .claude/
     └── commands/
