@@ -3,13 +3,11 @@
 > **One system prompt turns Opus 5 from a verbose smartass into a precise senior engineering partner.**
 > For mid to senior engineers running frontier coding agents (Claude Code, Pi, or any harness with an appendable system prompt).
 
-📺 Watch this video to get the full breakdown of this codebase: **[Fixing Opus 5 on YouTube](https://youtu.be/S_QdQ1G4GlU)**
-
 <p align="center">
   <img src="images/01_verbal_tics_top_five.svg" alt="Five verbal tics pinned to the exact lines of an Opus 5 response — negative parallelism, em dash chaining, load-bearing, you're absolutely right, heading and bold theater" width="850">
 </p>
 
-Opus 5 is one of the smartest models ever shipped and one of the most exhausting to work with. It buries answers under six headers, burns more output tokens than any model before it, and stamps Anthropic's co-author credit on commits you paid for. This repo fixes that with a single file, `sr_opus_5_system_prompt.md`, appended to every session. **The model is not broken. The communication channel is, and the system prompt is where you fix it.**
+Opus 5 is one of the smartest models ever shipped and one of the most exhausting to work with. It buries answers under six headers, burns more output tokens than any model before it, and stamps Anthropic's co-author credit on commits you paid for. This repo fixes that with a single file, `communication_style.md`, appended to every session. **The model is not broken. The communication channel is, and the system prompt is where you fix it.**
 
 ---
 
@@ -25,14 +23,13 @@ The `/install` command lives at `.claude/commands/install.md`. It verifies `just
 
 ### Manual Install
 
-**Prereqs:** [`just`](https://github.com/casey/just), [`claude`](https://docs.claude.com/cli). For the side-by-side comparison: [`herdr`](https://herdr.dev) and `jq`. For the Pi mirror recipes: [`pi`](https://github.com/mariozechner/pi-coding-agent).
+**Prereqs:** [`just`](https://github.com/casey/just), [`claude`](https://docs.claude.com/cli). For the side-by-side comparison: [`herdr`](https://herdr.dev) and `jq`. For the Pi mirror recipes: [`pi`](https://github.com/earendil-works/pi).
 
 ```bash
-git clone <REPO_URL> && cd sr-opus-5   # get the code
-brew install just herdr jq              # toolchain
-npm install -g @mariozechner/pi         # optional: the Pi coding agent
-just                                    # list recipes
-just sr-opus                            # boot Opus 5 with the system prompt appended
+brew install just herdr jq                                       # toolchain
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent  # optional: the Pi coding agent
+just                                                             # list recipes
+just tuned-opus                                                  # boot Opus 5 with the system prompt appended
 ```
 
 That is the entire setup. The system prompt is plain markdown passed via `--append-system-prompt-file`. No build, no dependencies, no config.
@@ -60,7 +57,7 @@ Most engineers respond by tuning individual user prompts, over and over, one tas
 You control two inputs to your agent. Most engineers only use one.
 
 | Input | Role | Scope |
-|---|---|---|
+| --- | --- | --- |
 | User prompt | The work order | One task |
 | **System prompt** | **The operating contract** | **Every task, every turn** |
 
@@ -74,10 +71,10 @@ The user prompt says what to do. The system prompt says how to operate, and it i
   <img src="images/04_system_prompt_anatomy.svg" alt="One system prompt file fanning out into four numbered sections — patterns, references, boundaries, aliases" width="780">
 </p>
 
-[`sr_opus_5_system_prompt.md`](sr_opus_5_system_prompt.md) is one document with a purpose statement, four instruction sections, and a set of concrete examples.
+[`communication_style.md`](communication_style.md) is one document with a purpose statement, four instruction sections, and a set of concrete examples.
 
 | Section | What it does |
-|---|---|
+| --- | --- |
 | Purpose | Sets the relationship: no-bs, clear, concise, actionable. Explains why. |
 | 1. Positive and Negative Patterns | Do-this and never-do-this behavior lists. The banned-phrase list lives here. |
 | 2. Reference Points | Short codes for findings, decisions, options, risks, questions, actions. |
@@ -122,7 +119,7 @@ Scope control for a model trained to do as much as possible. The requested task 
 </p>
 
 | Alias | Expansion |
-|---|---|
+| --- | --- |
 | `scr` | Simplify, compress, and repeat your response. |
 | `eli` | Explain this like I'm 18. Simplify. Shorten. |
 | `foc` | Focus on what matters most. Boil it down to the one thing. |
@@ -143,29 +140,28 @@ Every change to the system prompt gets verified side by side against the stock m
 ```
 just                    # list all recipes
 just install            # agentic setup via /install
-just sr-opus            # Opus 5 + the system prompt (the fix)
-just smart-ass-opus     # Opus 5 stock (the control)
+just tuned-opus         # Opus 5 + the system prompt (the fix)
+just stock-opus         # Opus 5 stock (the control)
 just compare <name>     # herdr workspace: both side by side, same prompt fired into each
 
-just sr-pi              # the same fix in the Pi coding agent
-just smart-ass-pi       # stock Opus 5 in Pi
+just tuned-pi           # the same fix in the Pi coding agent
+just stock-pi           # stock Opus 5 in Pi
 just pi-compare <name>  # the same side-by-side loop in Pi
 ```
 
-`just compare <name>` opens a herdr workspace with two Claude Code panes: `smart-ass-opus-5` on the left, `sr-opus-5` on the right. Same model, same prompt, one variable: the appended system prompt. Watch response length, output tokens, and wall-clock time diverge in real time. Then iterate: edit the system prompt, `just compare <next-name>`, observe the delta.
+`just compare <name>` opens a herdr workspace with two Claude Code panes: `stock-opus-5` on the left, `tuned-opus-5` on the right. Same model, same prompt, one variable: the appended system prompt. Watch response length, output tokens, and wall-clock time diverge in real time. Then iterate: edit the system prompt, `just compare <next-name>`, observe the delta.
 
-The `pi-*` recipes run the identical experiment in the [Pi coding agent](https://github.com/mariozechner/pi-coding-agent) via `--append-system-prompt`. Same file, different harness: proof the system prompt is portable across agents.
+The `pi-*` recipes run the identical experiment in the [Pi coding agent](https://github.com/earendil-works/pi) via `--append-system-prompt`. Same file, different harness: proof the system prompt is portable across agents.
 
 ---
 
 ## Folder structure
 
 ```
-sr-opus-5/
+fixing-smartass-opus-5/
 ├── README.md                            # this file
-├── LICENSE                              # MIT
 ├── justfile                             # launch + compare recipes
-├── sr_opus_5_system_prompt.md           # the system prompt — the entire product
+├── communication_style.md               # the system prompt — the entire product
 ├── ai_docs/
 │   └── zuck-thefutureisforeveryone.md   # long blog post used as the comparison benchmark
 ├── images/                              # animated SVG diagrams (numbered for narrative order)
@@ -188,12 +184,6 @@ These sections are a starting place, not a finished product. They are a few dedi
 - **Append, not replace.** `--append-system-prompt-file` layers on top of Claude Code's own system prompt. You are steering the harness, not replacing it, so harness-level behaviors persist.
 - **Model drift.** New model, new tics. The verbal tic list is Opus 5 specific and will need re-tuning per model. The structure (patterns, references, boundaries, aliases, examples) does not change.
 - **Over-compression.** Aggressive conciseness can drop context you actually wanted. That is what the aliases are for: `scr` to compress further, or just ask for more detail when the task warrants it.
-
----
-
-## License
-
-MIT — see [`LICENSE`](LICENSE).
 
 ---
 

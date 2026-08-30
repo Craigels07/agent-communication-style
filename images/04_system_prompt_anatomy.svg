@@ -15,7 +15,7 @@
   <!-- system prompt file -->
   <rect class="glow" x="629" y="119" width="662" height="222" rx="26" fill="none" stroke="#00F3FF" stroke-width="3"/>
   <rect x="640" y="130" width="640" height="200" rx="18" fill="rgba(8,12,18,0.78)" stroke="#00F3FF" stroke-width="5"/>
-  <text class="m sh" x="960" y="196" font-size="36" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">sr_opus_5_system_prompt.md</text>
+  <text class="m sh" x="960" y="196" font-size="36" fill="#00F3FF" text-anchor="middle" dominant-baseline="central">communication_style.md</text>
   <rect x="710" y="242" width="500" height="10" rx="5" fill="rgba(255,255,255,0.30)"/>
   <rect x="710" y="272" width="380" height="10" rx="5" fill="rgba(255,255,255,0.30)"/>
 
