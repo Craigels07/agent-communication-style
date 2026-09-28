@@ -23,12 +23,12 @@
     .chip2{animation:kchip2 12s linear infinite}
 
     /* Chip fills + code darkening at each hit (2500/4400/6300ms) */
-    @keyframes kchipR0{0%,20.833%{fill:rgba(0,255,16,0);stroke:rgba(255,255,255,.42)}25%,100%{fill:#00FF10;stroke:#00FF10}}
-    @keyframes kchipR1{0%,36.667%{fill:rgba(255,176,32,0);stroke:rgba(255,255,255,.42)}40.833%,100%{fill:#FFB020;stroke:#FFB020}}
-    @keyframes kchipR2{0%,52.5%{fill:rgba(0,243,255,0);stroke:rgba(255,255,255,.42)}56.667%,100%{fill:#00F3FF;stroke:#00F3FF}}
-    @keyframes kcode0{0%,20.833%{fill:#FFFFFF}25%,100%{fill:#08121A}}
-    @keyframes kcode1{0%,36.667%{fill:#FFFFFF}40.833%,100%{fill:#08121A}}
-    @keyframes kcode2{0%,52.5%{fill:#FFFFFF}56.667%,100%{fill:#08121A}}
+    @keyframes kchipR0{0%,20.833%{fill:rgba(63,185,80,0);stroke:rgba(230,237,243,.42)}25%,100%{fill:#3fb950;stroke:#3fb950}}
+    @keyframes kchipR1{0%,36.667%{fill:rgba(210,153,34,0);stroke:rgba(230,237,243,.42)}40.833%,100%{fill:#d29922;stroke:#d29922}}
+    @keyframes kchipR2{0%,52.5%{fill:rgba(88,166,255,0);stroke:rgba(230,237,243,.42)}56.667%,100%{fill:#58a6ff;stroke:#58a6ff}}
+    @keyframes kcode0{0%,20.833%{fill:#e6edf3}25%,100%{fill:#08121A}}
+    @keyframes kcode1{0%,36.667%{fill:#e6edf3}40.833%,100%{fill:#08121A}}
+    @keyframes kcode2{0%,52.5%{fill:#e6edf3}56.667%,100%{fill:#08121A}}
     .chipR0{animation:kchipR0 12s linear infinite}
     .chipR1{animation:kchipR1 12s linear infinite}
     .chipR2{animation:kchipR2 12s linear infinite}
@@ -89,79 +89,79 @@
 
   <!-- ================= Content columns (clear at the end) ================= -->
   <g class="col0">
-    <rect x="200" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
-    <text class="sans sh" x="440" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Ship v2 schema</text>
-    <rect x="270" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
-    <rect x="320" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="200" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(230,237,243,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="440" y="250" font-size="38" font-weight="600" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">Ship v2 schema</text>
+    <rect x="270" y="310" width="340" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
+    <rect x="320" y="343" width="240" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
   </g>
   <g class="col1">
-    <rect x="720" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
-    <text class="sans sh" x="960" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Cache in Redis</text>
-    <rect x="790" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
-    <rect x="840" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="720" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(230,237,243,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="960" y="250" font-size="38" font-weight="600" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">Cache in Redis</text>
+    <rect x="790" y="310" width="340" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
+    <rect x="840" y="343" width="240" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
   </g>
   <g class="col2">
-    <rect x="1240" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
-    <text class="sans sh" x="1480" y="250" font-size="38" font-weight="600" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Owns migrations?</text>
-    <rect x="1310" y="310" width="340" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
-    <rect x="1360" y="343" width="240" height="10" rx="5" fill="rgba(255,255,255,0.34)"/>
+    <rect x="1240" y="150" width="480" height="540" rx="18" fill="rgba(8,12,18,0.76)" stroke="rgba(230,237,243,0.20)" stroke-width="3"/>
+    <text class="sans sh" x="1480" y="250" font-size="38" font-weight="600" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">Owns migrations?</text>
+    <rect x="1310" y="310" width="340" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
+    <rect x="1360" y="343" width="240" height="10" rx="5" fill="rgba(230,237,243,0.34)"/>
   </g>
 
   <!-- ================= Connectors from the card up to each chip ================= -->
-  <line class="conn0" x1="440" y1="800" x2="440" y2="642" stroke="#00FF10" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-  <line class="conn1" x1="960" y1="800" x2="960" y2="642" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
-  <line class="conn2" x1="1480" y1="800" x2="1480" y2="642" stroke="#00F3FF" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <line class="conn0" x1="440" y1="800" x2="440" y2="642" stroke="#3fb950" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <line class="conn1" x1="960" y1="800" x2="960" y2="642" stroke="#d29922" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+  <line class="conn2" x1="1480" y1="800" x2="1480" y2="642" stroke="#58a6ff" stroke-width="4" stroke-linecap="round" opacity="0.95" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
 
   <!-- ================= Action icons (survive) ================= -->
   <g>
-    <circle class="ring0" cx="440" cy="470" r="42" fill="none" stroke="#00FF10" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 440 470)"/>
-    <path class="gl0" d="M 421.1 470.84 L 434.96 485.96 L 461 453.2" fill="none" stroke="#00FF10" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <circle class="ring0" cx="440" cy="470" r="42" fill="none" stroke="#3fb950" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 440 470)"/>
+    <path class="gl0" d="M 421.1 470.84 L 434.96 485.96 L 461 453.2" fill="none" stroke="#3fb950" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
   </g>
   <g>
-    <circle class="ring1" cx="960" cy="470" r="42" fill="none" stroke="#FFB020" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 960 470)"/>
-    <path class="gl1" d="M 944.88 454.88 L 975.12 485.12 M 975.12 454.88 L 944.88 485.12" fill="none" stroke="#FFB020" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <circle class="ring1" cx="960" cy="470" r="42" fill="none" stroke="#d29922" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 960 470)"/>
+    <path class="gl1" d="M 944.88 454.88 L 975.12 485.12 M 975.12 454.88 L 944.88 485.12" fill="none" stroke="#d29922" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
   </g>
   <g>
-    <circle class="ring2" cx="1480" cy="470" r="42" fill="none" stroke="#00F3FF" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 1480 470)"/>
-    <path class="gl2" d="M 1463.2 452.36 L 1463.2 475.04 Q 1463.2 484.28 1472.44 484.28 L 1498.48 484.28 M 1487.56 473.36 L 1499.32 484.28 L 1487.56 495.2" fill="none" stroke="#00F3FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <circle class="ring2" cx="1480" cy="470" r="42" fill="none" stroke="#58a6ff" stroke-width="5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 1480 470)"/>
+    <path class="gl2" d="M 1463.2 452.36 L 1463.2 475.04 Q 1463.2 484.28 1472.44 484.28 L 1498.48 484.28 M 1487.56 473.36 L 1499.32 484.28 L 1487.56 495.2" fill="none" stroke="#58a6ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
   </g>
 
   <!-- ================= Code chips (survive) ================= -->
   <g class="chip0">
-    <rect class="chipR0" x="370" y="578" width="140" height="64" rx="10" fill="rgba(0,255,16,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
-    <text class="mono code0" x="440" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">D1</text>
+    <rect class="chipR0" x="370" y="578" width="140" height="64" rx="10" fill="rgba(63,185,80,0)" stroke="rgba(230,237,243,0.42)" stroke-width="3"/>
+    <text class="mono code0" x="440" y="610" font-size="42" font-weight="700" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">D1</text>
   </g>
   <g class="chip1">
-    <rect class="chipR1" x="890" y="578" width="140" height="64" rx="10" fill="rgba(255,176,32,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
-    <text class="mono code1" x="960" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">O1</text>
+    <rect class="chipR1" x="890" y="578" width="140" height="64" rx="10" fill="rgba(210,153,34,0)" stroke="rgba(230,237,243,0.42)" stroke-width="3"/>
+    <text class="mono code1" x="960" y="610" font-size="42" font-weight="700" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">O1</text>
   </g>
   <g class="chip2">
-    <rect class="chipR2" x="1410" y="578" width="140" height="64" rx="10" fill="rgba(0,243,255,0)" stroke="rgba(255,255,255,0.42)" stroke-width="3"/>
-    <text class="mono code2" x="1480" y="610" font-size="42" font-weight="700" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">Q1</text>
+    <rect class="chipR2" x="1410" y="578" width="140" height="64" rx="10" fill="rgba(88,166,255,0)" stroke="rgba(230,237,243,0.42)" stroke-width="3"/>
+    <text class="mono code2" x="1480" y="610" font-size="42" font-weight="700" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">Q1</text>
   </g>
 
   <!-- ================= Held-tail halos ================= -->
   <g class="halo0" opacity="0">
-    <circle cx="440" cy="470" r="50" fill="none" stroke="#00FF10" stroke-width="3"/>
-    <rect x="362" y="570" width="156" height="80" rx="14" fill="none" stroke="#00FF10" stroke-width="3"/>
+    <circle cx="440" cy="470" r="50" fill="none" stroke="#3fb950" stroke-width="3"/>
+    <rect x="362" y="570" width="156" height="80" rx="14" fill="none" stroke="#3fb950" stroke-width="3"/>
   </g>
   <g class="halo1" opacity="0">
-    <circle cx="960" cy="470" r="50" fill="none" stroke="#FFB020" stroke-width="3"/>
-    <rect x="882" y="570" width="156" height="80" rx="14" fill="none" stroke="#FFB020" stroke-width="3"/>
+    <circle cx="960" cy="470" r="50" fill="none" stroke="#d29922" stroke-width="3"/>
+    <rect x="882" y="570" width="156" height="80" rx="14" fill="none" stroke="#d29922" stroke-width="3"/>
   </g>
   <g class="halo2" opacity="0">
-    <circle cx="1480" cy="470" r="50" fill="none" stroke="#00F3FF" stroke-width="3"/>
-    <rect x="1402" y="570" width="156" height="80" rx="14" fill="none" stroke="#00F3FF" stroke-width="3"/>
+    <circle cx="1480" cy="470" r="50" fill="none" stroke="#58a6ff" stroke-width="3"/>
+    <rect x="1402" y="570" width="156" height="80" rx="14" fill="none" stroke="#58a6ff" stroke-width="3"/>
   </g>
 
   <!-- ================= The command card ================= -->
   <g class="cardX">
     <g class="cardY">
-      <rect x="270" y="800" width="340" height="100" rx="16" fill="rgba(8,12,18,0.76)" stroke="rgba(255,255,255,0.20)" stroke-width="3"/>
-      <text class="mono sh" x="310" y="850" font-size="44" font-weight="700" fill="#FFFFFF" fill-opacity="0.75" text-anchor="middle" dominant-baseline="central">&#8250;</text>
-      <text class="mono sh cmd1" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" dominant-baseline="central">keep D1</text>
-      <text class="mono sh cmd2" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" opacity="0" dominant-baseline="central">reject O1</text>
-      <text class="mono sh cmd3" x="344" y="850" font-size="36" font-weight="600" fill="#FFFFFF" opacity="0" dominant-baseline="central">answer Q1</text>
+      <rect x="270" y="800" width="340" height="100" rx="16" fill="rgba(8,12,18,0.76)" stroke="rgba(230,237,243,0.20)" stroke-width="3"/>
+      <text class="mono sh" x="310" y="850" font-size="44" font-weight="700" fill="#e6edf3" fill-opacity="0.75" text-anchor="middle" dominant-baseline="central">&#8250;</text>
+      <text class="mono sh cmd1" x="344" y="850" font-size="36" font-weight="600" fill="#e6edf3" dominant-baseline="central">keep D1</text>
+      <text class="mono sh cmd2" x="344" y="850" font-size="36" font-weight="600" fill="#e6edf3" opacity="0" dominant-baseline="central">reject O1</text>
+      <text class="mono sh cmd3" x="344" y="850" font-size="36" font-weight="600" fill="#e6edf3" opacity="0" dominant-baseline="central">answer Q1</text>
     </g>
   </g>
 </svg>

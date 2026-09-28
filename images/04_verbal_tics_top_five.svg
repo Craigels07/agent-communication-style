@@ -22,11 +22,11 @@
     @keyframes kb13 { 0%,12.857% { opacity:0; } 15.143%,100% { opacity:1; } }
 
     /* tic lines turn amber at each pin */
-    @keyframes ka1 { 0%,19% { fill:#ffffff; } 21.143%,100% { fill:#FFB020; } }
-    @keyframes ka2 { 0%,25.786% { fill:#ffffff; } 27.929%,100% { fill:#FFB020; } }
-    @keyframes ka3 { 0%,32.571% { fill:#ffffff; } 34.714%,100% { fill:#FFB020; } }
-    @keyframes ka4 { 0%,39.357% { fill:#ffffff; } 41.5%,100% { fill:#FFB020; } }
-    @keyframes ka5 { 0%,46.143% { fill:#ffffff; } 48.286%,100% { fill:#FFB020; } }
+    @keyframes ka1 { 0%,19% { fill:#e6edf3; } 21.143%,100% { fill:#d29922; } }
+    @keyframes ka2 { 0%,25.786% { fill:#e6edf3; } 27.929%,100% { fill:#d29922; } }
+    @keyframes ka3 { 0%,32.571% { fill:#e6edf3; } 34.714%,100% { fill:#d29922; } }
+    @keyframes ka4 { 0%,39.357% { fill:#e6edf3; } 41.5%,100% { fill:#d29922; } }
+    @keyframes ka5 { 0%,46.143% { fill:#e6edf3; } 48.286%,100% { fill:#d29922; } }
 
     /* rank rail grows stepwise; stubs fade with each tag */
     @keyframes krail { 0%,23.929% { transform:scaleY(.001); } 24.643%,30.714% { transform:scaleY(.2); } 31.429%,37.5% { transform:scaleY(.5); } 38.214%,44.286% { transform:scaleY(.8); } 45%,100% { transform:scaleY(1); } }
@@ -94,10 +94,10 @@
 
   <!-- ================= Response card ================= -->
   <g style="animation:kcard 14s linear infinite">
-    <rect x="640" y="70" width="640" height="940" rx="20" fill="rgba(8,12,18,0.80)" stroke="#00F3FF" stroke-width="5"/>
-    <line x1="680" y1="185" x2="1240" y2="185" stroke="rgba(0,243,255,0.7)" stroke-width="3"/>
+    <rect x="640" y="70" width="640" height="940" rx="20" fill="rgba(8,12,18,0.80)" stroke="#58a6ff" stroke-width="5"/>
+    <line x1="680" y1="185" x2="1240" y2="185" stroke="rgba(88,166,255,0.7)" stroke-width="3"/>
     <!-- Claude logo: vector orange asterisk -->
-    <g stroke="#E5683C" stroke-width="4.5" stroke-linecap="round" class="sh">
+    <g stroke="#a371f7" stroke-width="4.5" stroke-linecap="round" class="sh">
       <line x1="860" y1="135" x2="860" y2="118"/>
       <line x1="862.9" y1="135.9" x2="872.2" y2="121.6"/>
       <line x1="864.7" y1="138.4" x2="880.6" y2="132.4"/>
@@ -109,51 +109,51 @@
       <line x1="854.2" y1="140.5" x2="837.2" y2="139.5"/>
       <line x1="854.7" y1="137.6" x2="839.9" y2="129.2"/>
       <line x1="857.1" y1="135.5" x2="848.3" y2="120.9"/>
-      <circle cx="860" cy="140" r="3.5" fill="#E5683C" stroke="none"/>
+      <circle cx="860" cy="140" r="3.5" fill="#a371f7" stroke="none"/>
     </g>
-    <text x="984" y="140" class="f sh2" font-size="40" letter-spacing="5" fill="#FFFFFF" text-anchor="middle" dominant-baseline="central">OPUS 5</text>
+    <text x="984" y="140" class="f sh2" font-size="40" letter-spacing="5" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">OPUS 5</text>
   </g>
 
   <!-- ================= Body rows ================= -->
-  <text x="680" y="250" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb1 14s linear infinite,ka1 14s linear infinite">It's not X, it's Y.</text>
-  <rect x="680" y="300" width="520" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb2 14s linear infinite"/>
-  <text x="680" y="366" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb3 14s linear infinite,ka2 14s linear infinite">fast — clean — done</text>
-  <rect x="680" y="416" width="470" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb4 14s linear infinite"/>
-  <rect x="680" y="474" width="540" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb5 14s linear infinite"/>
-  <text x="680" y="540" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb6 14s linear infinite,ka3 14s linear infinite">the load-bearing bit</text>
-  <rect x="680" y="590" width="500" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb7 14s linear infinite"/>
-  <rect x="680" y="648" width="430" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb8 14s linear infinite"/>
-  <text x="680" y="714" class="f sh" font-size="35" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb9 14s linear infinite,ka4 14s linear infinite">You're absolutely right!</text>
-  <rect x="680" y="764" width="520" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb10 14s linear infinite"/>
-  <text x="680" y="830" class="f sh" font-size="38" font-weight="700" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb11 14s linear infinite,ka5 14s linear infinite">## KEY TAKEAWAYS</text>
-  <text x="680" y="888" class="f sh" font-size="35" font-weight="700" letter-spacing="1" fill="#ffffff" dominant-baseline="central" style="animation:kb12 14s linear infinite">**Bold** every line</text>
-  <rect x="680" y="938" width="480" height="16" rx="8" fill="rgba(255,255,255,0.38)" style="animation:kb13 14s linear infinite"/>
+  <text x="680" y="250" class="f sh" font-size="35" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb1 14s linear infinite,ka1 14s linear infinite">You're completely right!</text>
+  <rect x="680" y="300" width="520" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb2 14s linear infinite"/>
+  <text x="680" y="366" class="f sh" font-size="35" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb3 14s linear infinite,ka2 14s linear infinite">It's simple — and fast — and safe</text>
+  <rect x="680" y="416" width="470" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb4 14s linear infinite"/>
+  <rect x="680" y="474" width="540" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb5 14s linear infinite"/>
+  <text x="680" y="540" class="f sh" font-size="35" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb6 14s linear infinite,ka3 14s linear infinite">the load-bearing bit</text>
+  <rect x="680" y="590" width="500" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb7 14s linear infinite"/>
+  <rect x="680" y="648" width="430" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb8 14s linear infinite"/>
+  <text x="680" y="714" class="f sh" font-size="35" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb9 14s linear infinite,ka4 14s linear infinite">You're absolutely right!</text>
+  <rect x="680" y="764" width="520" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb10 14s linear infinite"/>
+  <text x="680" y="830" class="f sh" font-size="38" font-weight="700" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb11 14s linear infinite,ka5 14s linear infinite">## KEY TAKEAWAYS</text>
+  <text x="680" y="888" class="f sh" font-size="35" font-weight="700" letter-spacing="1" fill="#e6edf3" dominant-baseline="central" style="animation:kb12 14s linear infinite">**Bold** every line</text>
+  <rect x="680" y="938" width="480" height="16" rx="8" fill="rgba(230,237,243,0.38)" style="animation:kb13 14s linear infinite"/>
 
   <!-- ================= Rank rail ================= -->
-  <line x1="26" y1="250" x2="26" y2="830" stroke="rgba(255,176,32,0.5)" stroke-width="5" stroke-linecap="round"
+  <line x1="26" y1="250" x2="26" y2="830" stroke="rgba(210,153,34,0.5)" stroke-width="5" stroke-linecap="round"
         style="transform-box:fill-box;transform-origin:center top;animation:krail 14s linear infinite,ks1 14s linear infinite"/>
   <!-- Stubs from rail to each tag -->
-  <line x1="26" y1="250" x2="60" y2="250" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks1 14s linear infinite"/>
-  <line x1="26" y1="366" x2="60" y2="366" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks2 14s linear infinite"/>
-  <line x1="26" y1="540" x2="60" y2="540" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks3 14s linear infinite"/>
-  <line x1="26" y1="714" x2="60" y2="714" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks4 14s linear infinite"/>
-  <line x1="26" y1="830" x2="60" y2="830" stroke="rgba(255,176,32,0.5)" stroke-width="5" style="animation:ks5 14s linear infinite"/>
+  <line x1="26" y1="250" x2="60" y2="250" stroke="rgba(210,153,34,0.5)" stroke-width="5" style="animation:ks1 14s linear infinite"/>
+  <line x1="26" y1="366" x2="60" y2="366" stroke="rgba(210,153,34,0.5)" stroke-width="5" style="animation:ks2 14s linear infinite"/>
+  <line x1="26" y1="540" x2="60" y2="540" stroke="rgba(210,153,34,0.5)" stroke-width="5" style="animation:ks3 14s linear infinite"/>
+  <line x1="26" y1="714" x2="60" y2="714" stroke="rgba(210,153,34,0.5)" stroke-width="5" style="animation:ks4 14s linear infinite"/>
+  <line x1="26" y1="830" x2="60" y2="830" stroke="rgba(210,153,34,0.5)" stroke-width="5" style="animation:ks5 14s linear infinite"/>
 
   <!-- ================= Edges from tags to their lines ================= -->
-  <rect x="610" y="248" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke1 14s linear infinite,kf1 14s linear infinite"/>
-  <rect x="610" y="364" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke2 14s linear infinite,kf2 14s linear infinite"/>
-  <rect x="610" y="538" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke3 14s linear infinite,kf3 14s linear infinite"/>
-  <rect x="610" y="712" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke4 14s linear infinite,kf4 14s linear infinite"/>
-  <rect x="610" y="828" width="30" height="4" fill="rgba(255,176,32,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke5 14s linear infinite,kf5 14s linear infinite"/>
+  <rect x="610" y="248" width="30" height="4" fill="rgba(210,153,34,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke1 14s linear infinite,kf1 14s linear infinite"/>
+  <rect x="610" y="364" width="30" height="4" fill="rgba(210,153,34,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke2 14s linear infinite,kf2 14s linear infinite"/>
+  <rect x="610" y="538" width="30" height="4" fill="rgba(210,153,34,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke3 14s linear infinite,kf3 14s linear infinite"/>
+  <rect x="610" y="712" width="30" height="4" fill="rgba(210,153,34,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke4 14s linear infinite,kf4 14s linear infinite"/>
+  <rect x="610" y="828" width="30" height="4" fill="rgba(210,153,34,0.7)" style="transform-box:fill-box;transform-origin:left center;animation:ke5 14s linear infinite,kf5 14s linear infinite"/>
   <!-- Edge dots -->
-  <circle cx="640" cy="250" r="7" fill="#FFB020" style="animation:kd1 14s linear infinite"/>
-  <circle cx="640" cy="366" r="7" fill="#FFB020" style="animation:kd2 14s linear infinite"/>
-  <circle cx="640" cy="540" r="7" fill="#FFB020" style="animation:kd3 14s linear infinite"/>
-  <circle cx="640" cy="714" r="7" fill="#FFB020" style="animation:kd4 14s linear infinite"/>
-  <circle cx="640" cy="830" r="7" fill="#FFB020" style="animation:kd5 14s linear infinite"/>
+  <circle cx="640" cy="250" r="7" fill="#d29922" style="animation:kd1 14s linear infinite"/>
+  <circle cx="640" cy="366" r="7" fill="#d29922" style="animation:kd2 14s linear infinite"/>
+  <circle cx="640" cy="540" r="7" fill="#d29922" style="animation:kd3 14s linear infinite"/>
+  <circle cx="640" cy="714" r="7" fill="#d29922" style="animation:kd4 14s linear infinite"/>
+  <circle cx="640" cy="830" r="7" fill="#d29922" style="animation:kd5 14s linear infinite"/>
 
   <!-- ================= Brackets around pinned lines ================= -->
-  <g fill="none" stroke="rgba(255,176,32,0.65)" stroke-width="4">
+  <g fill="none" stroke="rgba(210,153,34,0.65)" stroke-width="4">
     <g style="animation:kbr1 14s linear infinite">
       <path d="M 678 227 L 662 227 L 662 273 L 678 273"/>
       <path d="M 1242 227 L 1258 227 L 1258 273 L 1242 273"/>
@@ -179,57 +179,57 @@
   <!-- ================= Tic tags ================= -->
   <!-- Tag 1: rows 0 (two-line) -->
   <g style="animation:ks1 14s linear infinite,kx1 14s linear infinite">
-    <rect x="60" y="188" width="550" height="124" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
-    <circle cx="106" cy="250" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
-    <text x="106" y="250" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">1</text>
-    <text x="148" y="226" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">NEGATIVE PARALLELISM</text>
-    <text x="148" y="274" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">(ITS NOT X, ITS Y)</text>
+    <rect x="60" y="188" width="550" height="124" rx="14" fill="rgba(210,153,34,0.12)" stroke="#d29922" stroke-width="4"/>
+    <circle cx="106" cy="250" r="26" fill="rgba(210,153,34,0.7)" stroke="#d29922" stroke-width="3"/>
+    <text x="106" y="250" class="f" font-size="36" font-weight="700" fill="#0d1117" text-anchor="middle" dominant-baseline="central">1</text>
+    <text x="148" y="226" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">UNEARNED AGREEMENT</text>
+    <text x="148" y="274" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">YOURE COMPLETELY RIGHT</text>
   </g>
   <!-- Tag 2 -->
   <g style="animation:ks2 14s linear infinite,kx2 14s linear infinite">
-    <rect x="60" y="324" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
-    <circle cx="106" cy="366" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
-    <text x="106" y="366" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">2</text>
-    <text x="148" y="366" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">EM DASH CHAINING</text>
+    <rect x="60" y="324" width="550" height="84" rx="14" fill="rgba(210,153,34,0.12)" stroke="#d29922" stroke-width="4"/>
+    <circle cx="106" cy="366" r="26" fill="rgba(210,153,34,0.7)" stroke="#d29922" stroke-width="3"/>
+    <text x="106" y="366" class="f" font-size="36" font-weight="700" fill="#0d1117" text-anchor="middle" dominant-baseline="central">2</text>
+    <text x="148" y="366" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">EM DASH CHAINING</text>
   </g>
   <!-- Tag 3 -->
   <g style="animation:ks3 14s linear infinite,kx3 14s linear infinite">
-    <rect x="60" y="498" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
-    <circle cx="106" cy="540" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
-    <text x="106" y="540" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">3</text>
-    <text x="148" y="540" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">LOAD-BEARING</text>
+    <rect x="60" y="498" width="550" height="84" rx="14" fill="rgba(210,153,34,0.12)" stroke="#d29922" stroke-width="4"/>
+    <circle cx="106" cy="540" r="26" fill="rgba(210,153,34,0.7)" stroke="#d29922" stroke-width="3"/>
+    <text x="106" y="540" class="f" font-size="36" font-weight="700" fill="#0d1117" text-anchor="middle" dominant-baseline="central">3</text>
+    <text x="148" y="540" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">BANNED PHRASES</text>
   </g>
   <!-- Tag 4 -->
   <g style="animation:ks4 14s linear infinite,kx4 14s linear infinite">
-    <rect x="60" y="672" width="550" height="84" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
-    <circle cx="106" cy="714" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
-    <text x="106" y="714" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">4</text>
-    <text x="148" y="714" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">YOURE ABSOLUTELY RIGHT</text>
+    <rect x="60" y="672" width="550" height="84" rx="14" fill="rgba(210,153,34,0.12)" stroke="#d29922" stroke-width="4"/>
+    <circle cx="106" cy="714" r="26" fill="rgba(210,153,34,0.7)" stroke="#d29922" stroke-width="3"/>
+    <text x="106" y="714" class="f" font-size="36" font-weight="700" fill="#0d1117" text-anchor="middle" dominant-baseline="central">4</text>
+    <text x="148" y="714" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">YOURE ABSOLUTELY RIGHT</text>
   </g>
   <!-- Tag 5: two-line -->
   <g style="animation:ks5 14s linear infinite,kx5 14s linear infinite">
-    <rect x="60" y="768" width="550" height="124" rx="14" fill="rgba(255,176,32,0.12)" stroke="#FFB020" stroke-width="4"/>
-    <circle cx="106" cy="830" r="26" fill="rgba(255,176,32,0.7)" stroke="#FFB020" stroke-width="3"/>
-    <text x="106" y="830" class="f" font-size="36" font-weight="700" fill="#0A0E14" text-anchor="middle" dominant-baseline="central">5</text>
-    <text x="148" y="806" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">HEADING AND BOLD</text>
-    <text x="148" y="854" class="f sh2" font-size="35" fill="#FFFFFF" dominant-baseline="central">THEATER</text>
+    <rect x="60" y="768" width="550" height="124" rx="14" fill="rgba(210,153,34,0.12)" stroke="#d29922" stroke-width="4"/>
+    <circle cx="106" cy="830" r="26" fill="rgba(210,153,34,0.7)" stroke="#d29922" stroke-width="3"/>
+    <text x="106" y="830" class="f" font-size="36" font-weight="700" fill="#0d1117" text-anchor="middle" dominant-baseline="central">5</text>
+    <text x="148" y="806" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">HEADING AND BOLD</text>
+    <text x="148" y="854" class="f sh2" font-size="35" fill="#e6edf3" dominant-baseline="central">THEATER</text>
   </g>
 
   <!-- ================= Infinite end-state pulse (travels down the ranks) ================= -->
   <!-- Tag halos -->
-  <rect x="54" y="182" width="562" height="136" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA1 14s linear infinite"/>
-  <rect x="54" y="318" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA2 14s linear infinite"/>
-  <rect x="54" y="492" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA3 14s linear infinite"/>
-  <rect x="54" y="666" width="562" height="96" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA4 14s linear infinite"/>
-  <rect x="54" y="762" width="562" height="136" rx="18" fill="none" stroke="#FFB020" stroke-width="3" style="animation:kA5 14s linear infinite"/>
+  <rect x="54" y="182" width="562" height="136" rx="18" fill="none" stroke="#d29922" stroke-width="3" style="animation:kA1 14s linear infinite"/>
+  <rect x="54" y="318" width="562" height="96" rx="18" fill="none" stroke="#d29922" stroke-width="3" style="animation:kA2 14s linear infinite"/>
+  <rect x="54" y="492" width="562" height="96" rx="18" fill="none" stroke="#d29922" stroke-width="3" style="animation:kA3 14s linear infinite"/>
+  <rect x="54" y="666" width="562" height="96" rx="18" fill="none" stroke="#d29922" stroke-width="3" style="animation:kA4 14s linear infinite"/>
+  <rect x="54" y="762" width="562" height="136" rx="18" fill="none" stroke="#d29922" stroke-width="3" style="animation:kA5 14s linear infinite"/>
   <!-- Rank badge glow overlays -->
-  <circle cx="106" cy="250" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB1 14s linear infinite"/>
-  <circle cx="106" cy="366" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB2 14s linear infinite"/>
-  <circle cx="106" cy="540" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB3 14s linear infinite"/>
-  <circle cx="106" cy="714" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB4 14s linear infinite"/>
-  <circle cx="106" cy="830" r="26" fill="rgba(255,176,32,0.3)" style="animation:kB5 14s linear infinite"/>
+  <circle cx="106" cy="250" r="26" fill="rgba(210,153,34,0.3)" style="animation:kB1 14s linear infinite"/>
+  <circle cx="106" cy="366" r="26" fill="rgba(210,153,34,0.3)" style="animation:kB2 14s linear infinite"/>
+  <circle cx="106" cy="540" r="26" fill="rgba(210,153,34,0.3)" style="animation:kB3 14s linear infinite"/>
+  <circle cx="106" cy="714" r="26" fill="rgba(210,153,34,0.3)" style="animation:kB4 14s linear infinite"/>
+  <circle cx="106" cy="830" r="26" fill="rgba(210,153,34,0.3)" style="animation:kB5 14s linear infinite"/>
   <!-- Bracket bright overlays -->
-  <g fill="none" stroke="rgba(255,176,32,0.9)" stroke-width="4">
+  <g fill="none" stroke="rgba(210,153,34,0.9)" stroke-width="4">
     <g style="animation:kC1 14s linear infinite">
       <path d="M 678 227 L 662 227 L 662 273 L 678 273"/>
       <path d="M 1242 227 L 1258 227 L 1258 273 L 1242 273"/>
@@ -252,9 +252,9 @@
     </g>
   </g>
   <!-- Edge dot breathe overlays -->
-  <circle cx="640" cy="250" r="7" fill="#FFB020" style="animation:kD1 14s linear infinite"/>
-  <circle cx="640" cy="366" r="7" fill="#FFB020" style="animation:kD2 14s linear infinite"/>
-  <circle cx="640" cy="540" r="7" fill="#FFB020" style="animation:kD3 14s linear infinite"/>
-  <circle cx="640" cy="714" r="7" fill="#FFB020" style="animation:kD4 14s linear infinite"/>
-  <circle cx="640" cy="830" r="7" fill="#FFB020" style="animation:kD5 14s linear infinite"/>
+  <circle cx="640" cy="250" r="7" fill="#d29922" style="animation:kD1 14s linear infinite"/>
+  <circle cx="640" cy="366" r="7" fill="#d29922" style="animation:kD2 14s linear infinite"/>
+  <circle cx="640" cy="540" r="7" fill="#d29922" style="animation:kD3 14s linear infinite"/>
+  <circle cx="640" cy="714" r="7" fill="#d29922" style="animation:kD4 14s linear infinite"/>
+  <circle cx="640" cy="830" r="7" fill="#d29922" style="animation:kD5 14s linear infinite"/>
 </svg>

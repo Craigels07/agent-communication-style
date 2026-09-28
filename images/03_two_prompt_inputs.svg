@@ -57,73 +57,73 @@
   <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
 
   <!-- ================= Title ================= -->
-  <text class="title title-shadow" x="960" y="88" text-anchor="middle" dominant-baseline="central" font-size="60" letter-spacing="8" fill="#FFFFFF">TWO PROMPT INPUTS</text>
+  <text class="title title-shadow" x="960" y="88" text-anchor="middle" dominant-baseline="central" font-size="60" letter-spacing="8" fill="#e6edf3">TWO PROMPT INPUTS</text>
 
   <!-- ================= Rail halo (held tail only) ================= -->
-  <rect class="rail-halo" x="139" y="225" width="282" height="640" rx="27" fill="none" stroke="#00F3FF" stroke-width="3"/>
+  <rect class="rail-halo" x="139" y="225" width="282" height="640" rx="27" fill="none" stroke="#58a6ff" stroke-width="3"/>
 
   <!-- ================= SYSTEM PROMPT rail (wipes in top to bottom) ================= -->
   <g class="rail-wipe">
     <!-- steady tinted fill -->
-    <rect x="150" y="236" width="260" height="618" rx="16" fill="rgba(0,243,255,0.12)"/>
+    <rect x="150" y="236" width="260" height="618" rx="16" fill="rgba(88,166,255,0.12)"/>
     <!-- dedicated edge: full cyan stroke, breathes during the held tail -->
-    <rect class="rail-edge" x="150" y="236" width="260" height="618" rx="16" fill="none" stroke="#00F3FF" stroke-width="5"/>
+    <rect class="rail-edge" x="150" y="236" width="260" height="618" rx="16" fill="none" stroke="#58a6ff" stroke-width="5"/>
     <!-- port notches on the right edge, one per turn -->
-    <rect x="405.5" y="301" width="9" height="38" fill="#00F3FF"/>
-    <rect x="405.5" y="526" width="9" height="38" fill="#00F3FF"/>
-    <rect x="405.5" y="751" width="9" height="38" fill="#00F3FF"/>
+    <rect x="405.5" y="301" width="9" height="38" fill="#58a6ff"/>
+    <rect x="405.5" y="526" width="9" height="38" fill="#58a6ff"/>
+    <rect x="405.5" y="751" width="9" height="38" fill="#58a6ff"/>
   </g>
 
   <!-- rail labels -->
   <g class="sys-label">
-    <text class="shadow" x="280" y="440" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#00F3FF">SYSTEM</text>
-    <text class="shadow" x="280" y="492" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#00F3FF">PROMPT</text>
+    <text class="shadow" x="280" y="440" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#58a6ff">SYSTEM</text>
+    <text class="shadow" x="280" y="492" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="4" fill="#58a6ff">PROMPT</text>
   </g>
   <g class="contract-label">
-    <line x1="190" y1="550" x2="370" y2="550" stroke="rgba(0,243,255,0.55)" stroke-width="2"/>
-    <text class="shadow" x="280" y="605" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(255,255,255,0.62)">OPERATING</text>
-    <text class="shadow" x="280" y="651" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(255,255,255,0.62)">CONTRACT</text>
+    <line x1="190" y1="550" x2="370" y2="550" stroke="rgba(88,166,255,0.55)" stroke-width="2"/>
+    <text class="shadow" x="280" y="605" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(230,237,243,0.62)">OPERATING</text>
+    <text class="shadow" x="280" y="651" text-anchor="middle" dominant-baseline="central" font-size="38" letter-spacing="3" fill="rgba(230,237,243,0.62)">CONTRACT</text>
   </g>
 
   <!-- ================= Turn 1 (starts 2700ms) ================= -->
-  <line class="branch" x1="410" y1="320" x2="660" y2="320" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr1"/>
-  <path class="arrow" d="M 645 307 L 658 320 L 645 333" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar1"/>
-  <circle class="carrier" cx="410" cy="320" r="9" fill="#00F3FF" style="animation-name:kca1"/>
+  <line class="branch" x1="410" y1="320" x2="660" y2="320" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kbr1"/>
+  <path class="arrow" d="M 645 307 L 658 320 L 645 333" fill="none" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kar1"/>
+  <circle class="carrier" cx="410" cy="320" r="9" fill="#58a6ff" style="animation-name:kca1"/>
   <g class="card" style="animation-name:kcd1">
-    <rect x="660" y="236" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
-    <text class="shadow" x="860" y="282" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
-    <text class="shadow" x="1670" y="282" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 1</text>
-    <rect class="content-line" x="690" y="334" width="742" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln1"/>
-    <rect class="content-line" x="690" y="370" width="486" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln2"/>
+    <rect x="660" y="236" width="1130" height="168" rx="14" fill="rgba(63,185,80,0.12)" stroke="#3fb950" stroke-width="4"/>
+    <text class="shadow" x="860" y="282" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#3fb950">USER PROMPT</text>
+    <text class="shadow" x="1670" y="282" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(230,237,243,0.62)">TURN 1</text>
+    <rect class="content-line" x="690" y="334" width="742" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln1"/>
+    <rect class="content-line" x="690" y="370" width="486" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln2"/>
   </g>
 
   <!-- ================= Turn 2 (starts 3650ms) ================= -->
-  <line class="branch" x1="410" y1="545" x2="660" y2="545" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr2"/>
-  <path class="arrow" d="M 645 532 L 658 545 L 645 558" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar2"/>
-  <circle class="carrier" cx="410" cy="545" r="9" fill="#00F3FF" style="animation-name:kca2"/>
+  <line class="branch" x1="410" y1="545" x2="660" y2="545" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kbr2"/>
+  <path class="arrow" d="M 645 532 L 658 545 L 645 558" fill="none" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kar2"/>
+  <circle class="carrier" cx="410" cy="545" r="9" fill="#58a6ff" style="animation-name:kca2"/>
   <g class="card" style="animation-name:kcd2">
-    <rect x="660" y="461" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
-    <text class="shadow" x="860" y="507" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
-    <text class="shadow" x="1670" y="507" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 2</text>
-    <rect class="content-line" x="690" y="559" width="690" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln3"/>
-    <rect class="content-line" x="690" y="595" width="542" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln4"/>
+    <rect x="660" y="461" width="1130" height="168" rx="14" fill="rgba(63,185,80,0.12)" stroke="#3fb950" stroke-width="4"/>
+    <text class="shadow" x="860" y="507" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#3fb950">USER PROMPT</text>
+    <text class="shadow" x="1670" y="507" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(230,237,243,0.62)">TURN 2</text>
+    <rect class="content-line" x="690" y="559" width="690" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln3"/>
+    <rect class="content-line" x="690" y="595" width="542" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln4"/>
   </g>
 
   <!-- ================= Turn 3 (starts 4600ms) ================= -->
-  <line class="branch" x1="410" y1="770" x2="660" y2="770" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kbr3"/>
-  <path class="arrow" d="M 645 757 L 658 770 L 645 783" fill="none" stroke="rgba(0,243,255,0.85)" stroke-width="3" style="animation-name:kar3"/>
-  <circle class="carrier" cx="410" cy="770" r="9" fill="#00F3FF" style="animation-name:kca3"/>
+  <line class="branch" x1="410" y1="770" x2="660" y2="770" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kbr3"/>
+  <path class="arrow" d="M 645 757 L 658 770 L 645 783" fill="none" stroke="rgba(88,166,255,0.85)" stroke-width="3" style="animation-name:kar3"/>
+  <circle class="carrier" cx="410" cy="770" r="9" fill="#58a6ff" style="animation-name:kca3"/>
   <g class="card" style="animation-name:kcd3">
-    <rect x="660" y="686" width="1130" height="168" rx="14" fill="rgba(0,255,16,0.12)" stroke="#00FF10" stroke-width="4"/>
-    <text class="shadow" x="860" y="732" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#00FF10">USER PROMPT</text>
-    <text class="shadow" x="1670" y="732" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(255,255,255,0.62)">TURN 3</text>
-    <rect class="content-line" x="690" y="784" width="768" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln5"/>
-    <rect class="content-line" x="690" y="820" width="452" height="12" rx="6" fill="rgba(0,255,16,0.5)" style="animation-name:kln6"/>
+    <rect x="660" y="686" width="1130" height="168" rx="14" fill="rgba(63,185,80,0.12)" stroke="#3fb950" stroke-width="4"/>
+    <text class="shadow" x="860" y="732" text-anchor="middle" dominant-baseline="central" font-size="40" letter-spacing="4" fill="#3fb950">USER PROMPT</text>
+    <text class="shadow" x="1670" y="732" text-anchor="middle" dominant-baseline="central" font-size="36" letter-spacing="6" fill="rgba(230,237,243,0.62)">TURN 3</text>
+    <rect class="content-line" x="690" y="784" width="768" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln5"/>
+    <rect class="content-line" x="690" y="820" width="452" height="12" rx="6" fill="rgba(63,185,80,0.5)" style="animation-name:kln6"/>
   </g>
 
   <!-- ================= Bracket gathering the stack ================= -->
-  <line class="bracket" x1="660" y1="900" x2="1790" y2="900" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
-  <line class="tick" x1="660" y1="900" x2="660" y2="882" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
-  <line class="tick" x1="1790" y1="900" x2="1790" y2="882" stroke="rgba(0,255,16,0.8)" stroke-width="3"/>
-  <text class="workorder title-shadow" x="1225" y="962" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="6" fill="#00FF10">WORK ORDER</text>
+  <line class="bracket" x1="660" y1="900" x2="1790" y2="900" stroke="rgba(63,185,80,0.8)" stroke-width="3"/>
+  <line class="tick" x1="660" y1="900" x2="660" y2="882" stroke="rgba(63,185,80,0.8)" stroke-width="3"/>
+  <line class="tick" x1="1790" y1="900" x2="1790" y2="882" stroke="rgba(63,185,80,0.8)" stroke-width="3"/>
+  <text class="workorder title-shadow" x="1225" y="962" text-anchor="middle" dominant-baseline="central" font-size="46" letter-spacing="6" fill="#3fb950">WORK ORDER</text>
 </svg>

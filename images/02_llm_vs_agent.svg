@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <style>
+    .f{font-family:'Play','Trebuchet MS','Segoe UI',system-ui,sans-serif}
+    .m{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace}
+    .sh{filter:drop-shadow(2px 2px 4px rgba(0,0,0,.8))}
+    .box{fill:rgba(8,12,18,0.78);stroke:rgba(230,237,243,0.20);stroke-width:3}
+    .bt{font-size:32px;letter-spacing:2px;fill:#e6edf3}
+    .bs{font-size:21px;fill:rgba(230,237,243,0.50)}
+    .flow{fill:none;stroke:#58a6ff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .loop{fill:none;stroke:#3fb950;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .panel{font-size:48px;letter-spacing:6px;font-weight:700}
+  </style>
+
+  <defs>
+    <marker id="aB" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#58a6ff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="aG" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#3fb950" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" rx="24" fill="#0d1117"/>
+
+  <!-- ================= PANEL A : LLM ================= -->
+  <text class="f sh panel" x="120" y="300" fill="rgba(230,237,243,0.75)" dominant-baseline="central">LLM</text>
+  <text class="f" x="120" y="350" font-size="23" fill="rgba(230,237,243,0.45)" dominant-baseline="central">one pass, then it stops</text>
+
+  <rect class="box" x="420" y="230" width="320" height="170" rx="16"/>
+  <text class="f bt" x="580" y="298" text-anchor="middle" dominant-baseline="central">CONTEXT</text>
+  <text class="f bs" x="580" y="338" text-anchor="middle" dominant-baseline="central">tools are just text here</text>
+
+  <path class="flow" d="M 740 315 H 820" marker-end="url(#aB)"/>
+
+  <rect class="box" x="830" y="230" width="260" height="170" rx="16"/>
+  <text class="f bt" x="960" y="315" text-anchor="middle" dominant-baseline="central">LLM</text>
+
+  <path class="flow" d="M 1090 315 H 1170" marker-end="url(#aB)"/>
+
+  <rect class="box" x="1180" y="230" width="320" height="170" rx="16"/>
+  <text class="f bt" x="1340" y="292" text-anchor="middle" dominant-baseline="central">REQUEST</text>
+  <text class="m bs" x="1340" y="336" text-anchor="middle" dominant-baseline="central">get_weather("Amsterdam")</text>
+
+  <text class="f" x="1560" y="298" font-size="26" letter-spacing="2" fill="rgba(230,237,243,0.45)" dominant-baseline="central">text, not an action</text>
+  <text class="f" x="1560" y="340" font-size="24" fill="rgba(248,81,73,0.80)" dominant-baseline="central">nothing was called</text>
+
+  <!-- divider -->
+  <line x1="120" y1="500" x2="1800" y2="500" stroke="rgba(230,237,243,0.12)" stroke-width="2"/>
+
+  <!-- ================= PANEL B : AGENT ================= -->
+  <text class="f sh panel" x="120" y="645" fill="#3fb950" dominant-baseline="central">AGENT</text>
+  <text class="f" x="120" y="698" font-size="21" fill="rgba(230,237,243,0.45)" dominant-baseline="central">same LLM, in a runtime loop</text>
+  <text class="f" x="120" y="732" font-size="21" fill="#3fb950" dominant-baseline="central">orchestration, not a model</text>
+  <text class="f" x="120" y="880" font-size="30" letter-spacing="3" fill="rgba(230,237,243,0.55)" dominant-baseline="central">THE LOOP IS</text>
+  <text class="f" x="120" y="918" font-size="30" letter-spacing="3" fill="rgba(230,237,243,0.55)" dominant-baseline="central">THE AGENT</text>
+
+  <rect class="box" x="420" y="600" width="320" height="170" rx="16" stroke="#3fb950"/>
+  <text class="f bt" x="580" y="668" text-anchor="middle" dominant-baseline="central">CONTEXT</text>
+  <text class="f bs" x="580" y="708" text-anchor="middle" dominant-baseline="central">grows every turn</text>
+
+  <path class="flow" d="M 740 685 H 820" marker-end="url(#aB)"/>
+
+  <rect class="box" x="830" y="600" width="260" height="170" rx="16"/>
+  <text class="f bt" x="960" y="685" text-anchor="middle" dominant-baseline="central">LLM</text>
+
+  <path class="flow" d="M 1090 685 H 1170" marker-end="url(#aB)"/>
+
+  <rect class="box" x="1180" y="600" width="320" height="170" rx="16"/>
+  <text class="f bt" x="1340" y="662" text-anchor="middle" dominant-baseline="central">REQUEST</text>
+  <text class="m bs" x="1340" y="706" text-anchor="middle" dominant-baseline="central">get_weather("Amsterdam")</text>
+
+  <!-- exit branch: no tool call -->
+  <path class="flow" d="M 1500 660 H 1580" marker-end="url(#aB)"/>
+  <text class="f" x="1600" y="648" font-size="24" fill="rgba(230,237,243,0.55)" dominant-baseline="central">no tool call</text>
+  <text class="f" x="1600" y="684" font-size="26" letter-spacing="2" fill="#58a6ff" dominant-baseline="central">DONE</text>
+
+  <!-- the loop -->
+  <text class="f" x="1360" y="812" font-size="22" fill="#3fb950" dominant-baseline="central">tool call</text>
+  <path class="loop" d="M 1340 770 V 930 H 1210" marker-end="url(#aG)"/>
+
+  <rect x="880" y="880" width="320" height="100" rx="16" fill="rgba(8,12,18,0.78)" stroke="#3fb950" stroke-width="3"/>
+  <text class="f" x="1040" y="916" font-size="27" letter-spacing="1" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">AGENT RUNTIME</text>
+  <text class="f bs" x="1040" y="950" text-anchor="middle" dominant-baseline="central">executes the call</text>
+
+  <path class="loop" d="M 880 930 H 810" marker-end="url(#aG)"/>
+
+  <rect x="480" y="880" width="320" height="100" rx="16" fill="rgba(8,12,18,0.78)" stroke="rgba(230,237,243,0.20)" stroke-width="3"/>
+  <text class="f" x="640" y="916" font-size="27" letter-spacing="1" fill="#e6edf3" text-anchor="middle" dominant-baseline="central">WEATHER API</text>
+  <text class="f bs" x="640" y="950" text-anchor="middle" dominant-baseline="central">the real world</text>
+
+  <path class="loop" d="M 640 880 V 780" marker-end="url(#aG)"/>
+  <text class="f" x="665" y="830" font-size="22" fill="#3fb950" dominant-baseline="central">result appended</text>
+
+  <!-- pseudocode -->
+  <rect x="1500" y="855" width="380" height="195" rx="14" fill="rgba(8,12,18,0.78)" stroke="rgba(230,237,243,0.20)" stroke-width="2"/>
+  <g class="m" font-size="17" fill="rgba(230,237,243,0.75)">
+    <text x="1525" y="885" dominant-baseline="central">while not done:</text>
+    <text x="1548" y="913" dominant-baseline="central">r = llm(ctx, tools)</text>
+    <text x="1548" y="941" dominant-baseline="central">if r.tool_call:</text>
+    <text x="1571" y="969" dominant-baseline="central">ctx += run(r.tool_call)</text>
+    <text x="1548" y="997" dominant-baseline="central">else:</text>
+    <text x="1571" y="1025" dominant-baseline="central">return r</text>
+  </g>
+</svg>

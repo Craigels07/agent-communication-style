@@ -1,0 +1,6 @@
+{
+  "packages": [
+    { "source": "npm:pi-subagents", "extensions": [] },
+    "git:github.com/edxeth/pi-subagents"
+  ]
+}

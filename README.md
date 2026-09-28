@@ -4,7 +4,7 @@
 > For mid to senior engineers running frontier coding agents (Claude Code, Pi, or any harness with an appendable system prompt).
 
 <p align="center">
-  <img src="images/01_verbal_tics_top_five.svg" alt="Five verbal tics pinned to the exact lines of an Opus 5 response — negative parallelism, em dash chaining, load-bearing, you're absolutely right, heading and bold theater" width="850">
+  <img src="images/04_verbal_tics_top_five.svg" alt="Five verbal tics pinned to the exact lines of an Opus 5 response — unearned agreement, em dash chaining, load-bearing, you're absolutely right, heading and bold theater" width="850">
 </p>
 
 Opus 5 is one of the smartest models ever shipped and one of the most exhausting to work with. It buries answers under six headers, burns more output tokens than any model before it, and stamps Anthropic's co-author credit on commits you paid for. This repo fixes that with a single file, `communication_style.md`, appended to every session. **The model is not broken. The communication channel is, and the system prompt is where you fix it.**
@@ -39,12 +39,32 @@ That is the entire setup. The system prompt is plain markdown passed via `--appe
 ## Why this exists
 
 <p align="center">
-  <img src="images/02_smart_model_to_useful_coworker.svg" alt="The same Opus 5 node, before and after — an oversized flagged response compressed into a short precise one" width="780">
+  <img src="images/05_smart_model_to_useful_coworker.svg" alt="The same Opus 5 node, before and after — an oversized flagged response compressed into a short precise one" width="780">
 </p>
 
 You know the tics. `load-bearing`. `worth stating plainly`. `You're absolutely right!`. Em dash after em dash. `## KEY TAKEAWAYS` with **bold** on every line, wrapped around a one-sentence answer. Every one of those tokens is money out of your pocket and time spent scanning for the actual answer.
 
 Most engineers respond by tuning individual user prompts, over and over, one task at a time. That is the low-leverage move. **Prompt engineering is not dead. It moved into the system prompt, where every word you write is multiplied across every prompt you send.**
+
+---
+
+## What the model actually sees
+
+<p align="center">
+  <img src="images/01_llm_inputs.svg" alt="Four inputs — system prompt, user prompt, tools, history — feeding one context window into the model and out to a response" width="780">
+</p>
+
+An LLM has no memory and no state. Every turn, four things are concatenated into one flat block of tokens and handed to it: the system prompt, your prompt, the tool definitions, and the conversation so far. That block is everything it knows.
+
+Note that tools are in there as plain text — a list of names and parameter schemas. The model can read them and write out a request to call one. It cannot call one.
+
+<p align="center">
+  <img src="images/02_llm_vs_agent.svg" alt="The same LLM twice — alone it emits a tool request and stops, wrapped in a runtime the call is executed and the result fed back until the model stops asking" width="820">
+</p>
+
+That is the difference between an LLM and an agent. The LLM is a function: tokens in, tokens out, once. The agent is the loop around it — it reads the request, executes the tool, appends the result to the context, and calls the model again, until the model stops asking. The agent is orchestration, not a second model. Claude Code is the agent. Opus 5 is the LLM inside it.
+
+This matters for what follows. Your system prompt is not sent once per task. It is re-sent on every iteration of that loop, alongside a context that grows with each tool result. Whatever you write there is multiplied by the loop.
 
 ---
 
@@ -68,7 +88,7 @@ The user prompt says what to do. The system prompt says how to operate, and it i
 ## What's inside the system prompt
 
 <p align="center">
-  <img src="images/04_system_prompt_anatomy.svg" alt="One system prompt file fanning out into four numbered sections — patterns, references, boundaries, aliases" width="780">
+  <img src="images/06_system_prompt_anatomy.svg" alt="One system prompt file fanning out into four numbered sections — patterns, references, boundaries, aliases" width="780">
 </p>
 
 [`communication_style.md`](communication_style.md) is one document with a purpose statement, four instruction sections, and a set of concrete examples.
@@ -85,7 +105,7 @@ The user prompt says what to do. The system prompt says how to operate, and it i
 ### 1. Positive and negative patterns
 
 <p align="center">
-  <img src="images/05_positive_negative_patterns.svg" alt="Replicate column with concise communication habits, avoid column with banned Opus 5 phrases" width="750">
+  <img src="images/07_positive_negative_patterns.svg" alt="Replicate column with concise communication habits, avoid column with banned Opus 5 phrases" width="750">
 </p>
 
 Two explicit lists: replicate these behaviors, avoid these words and patterns. This is where the banned phrases live (`load-bearing`, `worth stating plainly`, flattery, em dash chains) next to the habits you want reinforced on every response.
@@ -93,7 +113,7 @@ Two explicit lists: replicate these behaviors, avoid these words and patterns. T
 ### 2. Reference points
 
 <p align="center">
-  <img src="images/06_reference_codes_touch.svg" alt="Reference codes D1, O1, Q1 resolved by short commands — keep, reject, answer" width="750">
+  <img src="images/08_reference_codes_touch.svg" alt="Reference codes D1, O1, Q1 resolved by short commands — keep, reject, answer" width="750">
 </p>
 
 The agent labels its output with codes: `F1` for findings, `D1` for decisions, `O1` for options, `R1` for risks, `Q1` for questions, `A1` for actions. Your follow-ups collapse into near-zero-token commands:
@@ -106,17 +126,9 @@ No re-quoting, no re-explaining. You and the agent share an index into the conve
 
 ### 3. Hard operational boundaries
 
-<p align="center">
-  <img src="images/07_hard_operational_boundaries.svg" alt="The requested task passes through a scope shield while scope creep, co-author credit, and unasked refactors bounce off" width="750">
-</p>
-
 Scope control for a model trained to do as much as possible. The requested task passes through. Unasked refactors, adjacent cleanup, completion claims without evidence, and co-author credits in your commits do not.
 
 ### 4. Aliases
-
-<p align="center">
-  <img src="images/08_aliases.svg" alt="Four mono alias chips scr, eli, foc, ref expanding into their full instructions" width="750">
-</p>
 
 | Alias | Expansion |
 | --- | --- |
@@ -135,6 +147,10 @@ The examples section is training data you author. Take a response you liked (fro
 
 ## The compare loop
 
+<p align="center">
+  <img src="images/09_style_comparison.svg" alt="The same build-failure question answered four ways — stock Opus 5 sprawling over headings and bold, caveman in three lines, eli5 in plain words, communication style in two" width="880">
+</p>
+
 Every change to the system prompt gets verified side by side against the stock model on the same task: summarizing a long technical paper ([`ai_docs/brooks-no-silver-bullet.md`](ai_docs/brooks-no-silver-bullet.md) — Fred Brooks, *No Silver Bullet*, 1986). The paper is the benchmark because it has a skeleton a summary either keeps or visibly loses: one core claim, four essential difficulties, nine rejected silver bullets, four promising attacks.
 
 ```
@@ -143,6 +159,9 @@ just install            # agentic setup via /install
 just tuned-opus         # Opus 5 + the system prompt (the fix)
 just stock-opus         # Opus 5 stock (the control)
 just compare <name>     # herdr workspace: both side by side, same prompt fired into each
+
+just demo-round1        # demo round 1: stock vs communication_style, two panes
+just demo-round2        # demo round 2: stock + all three styles, four panes
 
 just tuned-pi           # the same fix in the Pi coding agent
 just stock-pi           # stock Opus 5 in Pi
