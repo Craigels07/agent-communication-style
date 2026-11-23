@@ -4,10 +4,10 @@
 > For mid to senior engineers running frontier coding agents (Claude Code, Pi, or any harness with an appendable system prompt).
 
 <p align="center">
-  <img src="images/04_verbal_tics_top_five.svg" alt="Five verbal tics pinned to the exact lines of an Opus 5 response — unearned agreement, em dash chaining, load-bearing, you're absolutely right, heading and bold theater" width="850">
+  <img src="images/04_verbal_tics_top_five.svg" alt="Five verbal tics pinned to the exact lines of an Opus 5 response — unearned agreement, em dash chaining, load-bearing, you're absolutely right, heading and bold overuse" width="850">
 </p>
 
-Opus 5 is one of the smartest models ever shipped and one of the most exhausting to work with. It buries answers under six headers, burns more output tokens than any model before it, and stamps Anthropic's co-author credit on commits you paid for. This repo fixes that with a single file, `communication_style.md`, appended to every session. **The model is not broken. The communication channel is, and the system prompt is where you fix it.**
+Opus 5 is a highly capable model, but its default communication style adds cost and friction. It nests short answers under multiple headings, produces more output tokens than the task needs, and adds a co-author credit to commits by default. This repo addresses that with a single file, `communication_style.md`, appended to every session. **The model's reasoning is sound. The communication layer is what needs tuning, and the system prompt is where to tune it.**
 
 ---
 
@@ -42,9 +42,9 @@ That is the entire setup. The system prompt is plain markdown passed via `--appe
   <img src="images/05_smart_model_to_useful_coworker.svg" alt="The same Opus 5 node, before and after — an oversized flagged response compressed into a short precise one" width="780">
 </p>
 
-You know the tics. `load-bearing`. `worth stating plainly`. `You're absolutely right!`. Em dash after em dash. `## KEY TAKEAWAYS` with **bold** on every line, wrapped around a one-sentence answer. Every one of those tokens is money out of your pocket and time spent scanning for the actual answer.
+The patterns are familiar: `load-bearing`, `worth stating plainly`, `You're absolutely right!`, chained em dashes, and `## KEY TAKEAWAYS` headings with **bold** on every line around a one-sentence answer. Each of those tokens adds cost and makes the actual answer harder to find.
 
-Most engineers respond by tuning individual user prompts, over and over, one task at a time. That is the low-leverage move. **Prompt engineering is not dead. It moved into the system prompt, where every word you write is multiplied across every prompt you send.**
+Most engineers respond by adjusting individual user prompts, one task at a time, which does not carry over to the next task. **Prompt engineering still matters, and its highest-leverage location is the system prompt, where every instruction applies to every prompt you send.**
 
 ---
 
@@ -74,7 +74,7 @@ This matters for what follows. Your system prompt is not sent once per task. It 
   <img src="images/03_two_prompt_inputs.svg" alt="A persistent SYSTEM PROMPT operating contract feeding every USER PROMPT turn in the work order" width="780">
 </p>
 
-You control two inputs to your agent. Most engineers only use one.
+You control two inputs to your agent. Most engineers actively tune only one.
 
 | Input | Role | Scope |
 | --- | --- | --- |
@@ -91,11 +91,11 @@ The user prompt says what to do. The system prompt says how to operate, and it i
   <img src="images/06_system_prompt_anatomy.svg" alt="One system prompt file fanning out into four numbered sections — patterns, references, boundaries, aliases" width="780">
 </p>
 
-[`communication_style.md`](communication_style.md) is one document with a purpose statement, four instruction sections, and a set of concrete examples.
+[`communication_style.md`](system_prompts/communication_style.md) is one document with a purpose statement, four instruction sections, and a set of concrete examples.
 
 | Section | What it does |
 | --- | --- |
-| Purpose | Sets the relationship: no-bs, clear, concise, actionable. Explains why. |
+| Purpose | Sets the relationship: direct, clear, concise, actionable. Explains why. |
 | 1. Positive and Negative Patterns | Do-this and never-do-this behavior lists. The banned-phrase list lives here. |
 | 2. Reference Points | Short codes for findings, decisions, options, risks, questions, actions. |
 | 3. Hard Operational Boundaries | Scope control. No unrequested cleanup, no co-authors, no completion claims without evidence. |
@@ -126,7 +126,7 @@ No re-quoting, no re-explaining. You and the agent share an index into the conve
 
 ### 3. Hard operational boundaries
 
-Scope control for a model trained to do as much as possible. The requested task passes through. Unasked refactors, adjacent cleanup, completion claims without evidence, and co-author credits in your commits do not.
+Scope control for a model that tends to expand beyond the request. The requested task passes through. Unasked refactors, adjacent cleanup, completion claims without evidence, and co-author credits in your commits do not.
 
 ### 4. Aliases
 
@@ -141,7 +141,7 @@ Aliases are bash aliases for conversation. They can also point at your skills an
 
 ### Examples (in-context distillation)
 
-The examples section is training data you author. Take a response you liked (from any model), tighten it, paste it as a `To do`. Take a bloated response, paste it as a `Not to do`. The model pattern-matches examples harder than rules, so this is where the tone actually locks in.
+The examples section is training data you author. Take a response you liked (from any model), tighten it, paste it as a `To do`. Take a bloated response, paste it as a `Not to do`. The model pattern-matches examples harder than rules, so this section has the strongest effect on tone.
 
 ---
 
@@ -170,7 +170,7 @@ just pi-compare <name>  # the same side-by-side loop in Pi
 
 `just compare <name>` opens a herdr workspace with two Claude Code panes: `stock-opus-5` on the left, `tuned-opus-5` on the right. Same model, same prompt, one variable: the appended system prompt. Watch response length, output tokens, and wall-clock time diverge in real time. Then iterate: edit the system prompt, `just compare <next-name>`, observe the delta.
 
-The `pi-*` recipes run the identical experiment in the [Pi coding agent](https://github.com/earendil-works/pi) via `--append-system-prompt`. Same file, different harness: proof the system prompt is portable across agents.
+The `pi-*` recipes run the identical experiment in the [Pi coding agent](https://github.com/earendil-works/pi) via `--append-system-prompt`. Same file, different harness, which shows the system prompt is portable across agents.
 
 ---
 
@@ -180,7 +180,10 @@ The `pi-*` recipes run the identical experiment in the [Pi coding agent](https:/
 agent-communication-style/
 ├── README.md                            # this file
 ├── justfile                             # launch + compare recipes
-├── communication_style.md               # the system prompt — the entire product
+├── system_prompts/
+│   ├── communication_style.md           # the system prompt
+│   ├── caveman_style.md                 # comparison style: minimal output
+│   └── eli5_style.md                    # comparison style: plain language
 ├── ai_docs/
 │   └── brooks-no-silver-bullet.md       # long technical paper used as the comparison benchmark
 ├── images/                              # animated SVG diagrams (numbered for narrative order)
@@ -193,7 +196,7 @@ agent-communication-style/
 
 ## Make it your own
 
-These sections are a starting place, not a finished product. They are a few dedicated system prompt ideas for improving a great but flawed language model so it communicates the way that works best for engineers. Extend them: add your own positive and negative patterns as you catch new tics, grow the banned-phrase list, invent reference codes for your domain, wire aliases to your own skills and commands, and keep distilling responses you like into the examples section. **The framework transfers to whatever model ships next. Only the word list changes.**
+These sections are a starting place, not a finished product. They are a few dedicated system prompt ideas for tuning a strong language model so it communicates the way that works best for engineers. Extend them: add your own positive and negative patterns as you catch new tics, grow the banned-phrase list, invent reference codes for your domain, wire aliases to your own skills and commands, and keep distilling responses you like into the examples section. **The framework transfers to whatever model ships next. Only the word list changes.**
 
 ---
 
