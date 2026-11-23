@@ -1,6 +1,6 @@
 # Agent Communication Style
 
-> **One system prompt turns Opus 5 from a verbose smartass into a precise senior engineering partner.**
+> **One system prompt turns Opus 5 from a verbose, performative assistant into a precise senior engineering partner.**
 > For mid to senior engineers running frontier coding agents (Claude Code, Pi, or any harness with an appendable system prompt).
 
 <p align="center">
