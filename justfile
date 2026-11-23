@@ -5,7 +5,16 @@ set dotenv-load := true
 # appended system prompt. Effort and thinking are pinned so the arms match.
 # Not --safe-mode: it also disables the status line, so token counts vanish.
 CLAUDE_ISO := "--setting-sources '' --effort high"
-PI_ISO := "--no-context-files --no-skills --no-extensions --thinking high"
+# pi_statusline.ts gives pi panes the same footer stats as statusline.sh.
+PI_ISO := "--no-context-files --no-skills --no-extensions --thinking high -e '" + justfile_directory() + "/pi_statusline.ts'"
+
+# Opus version for every recipe. Override per run: `just opus=5.5 compare`.
+# Pinned to a full model ID because the `opus` alias follows the newest release.
+opus := "5"
+MODEL := "claude-opus-" + replace(opus, ".", "-")
+
+# Harness for compare and the demo rounds (claude | pi). Override per run: `just harness=pi demo-round1`.
+harness := "claude"
 
 # List available launch modes.
 default:
@@ -17,11 +26,11 @@ install:
 
 # Opus 5 + one system prompt from system_prompts/ (caveman_style | communication_style | eli5_style).
 tuned-opus style="communication_style":
-    claude --settings '{"statusLine":{"type":"command","command":"{{justfile_directory()}}/statusline.sh"}}' --dangerously-skip-permissions --model "opus" {{CLAUDE_ISO}} --append-system-prompt-file "{{justfile_directory()}}/system_prompts/{{style}}.md"
+    claude --settings '{"statusLine":{"type":"command","command":"{{justfile_directory()}}/statusline.sh"}}' --dangerously-skip-permissions --model "{{MODEL}}" {{CLAUDE_ISO}} --append-system-prompt-file "{{justfile_directory()}}/system_prompts/{{style}}.md"
 
 # Opus 5 with no system prompt (the control).
 stock-opus:
-    claude --settings '{"statusLine":{"type":"command","command":"{{justfile_directory()}}/statusline.sh"}}' --dangerously-skip-permissions --model "opus" {{CLAUDE_ISO}}
+    claude --settings '{"statusLine":{"type":"command","command":"{{justfile_directory()}}/statusline.sh"}}' --dangerously-skip-permissions --model "{{MODEL}}" {{CLAUDE_ISO}}
 
 # Opus 5 stock + every system prompt, side by side in herdr. <name> labels the workspace.
 compare name="demo":
@@ -31,8 +40,17 @@ compare name="demo":
     # setup prompt
     DIR="{{justfile_directory()}}"
     PROMPT="explain the brooks no silver bullet paper: $DIR/ai_docs/brooks-no-silver-bullet.md"
-    SETTINGS="{\"statusLine\":{\"type\":\"command\",\"command\":\"$DIR/statusline.sh\"}}"
-    CLAUDE="claude --settings '$SETTINGS' --dangerously-skip-permissions --model 'opus' {{CLAUDE_ISO}}"
+    if [ "{{harness}}" = pi ]; then
+        AGENT="pi --model 'anthropic/{{MODEL}}' {{PI_ISO}}"
+        APPEND="--append-system-prompt"
+        # @file puts the paper in the first message, so pi never pages through it with read
+        INPUT="'@$DIR/ai_docs/brooks-no-silver-bullet.md' 'explain the brooks no silver bullet paper'"
+    else
+        SETTINGS="{\"statusLine\":{\"type\":\"command\",\"command\":\"$DIR/statusline.sh\"}}"
+        AGENT="claude --settings '$SETTINGS' --dangerously-skip-permissions --model '{{MODEL}}' {{CLAUDE_ISO}}"
+        APPEND="--append-system-prompt-file"
+        INPUT="'$PROMPT'"
+    fi
 
     # clear previous herdr
     herdr workspace list | jq -r '.result.workspaces[] | select(.label == "compare-{{name}}") | .workspace_id' | while read -r OLD; do herdr workspace close "$OLD"; done
@@ -44,7 +62,7 @@ compare name="demo":
 
     read -r WS PANE < <(herdr workspace create --cwd "$DIR" --label "compare-{{name}}" | jq -r '.result | "\(.workspace.workspace_id) \(.root_pane.pane_id)"')
     herdr pane rename "$PANE" stock
-    herdr pane run "$PANE" "$CLAUDE '$PROMPT'"
+    herdr pane run "$PANE" "$AGENT $INPUT"
     echo "workspace $WS: $PANE (stock, raw)"
 
     for STYLE in "${STYLES[@]}"; do
@@ -53,7 +71,7 @@ compare name="demo":
         PANE=$(herdr pane split "$PANE" --direction right --ratio "$RATIO" --cwd "$DIR" --no-focus | jq -r '.result.pane.pane_id')
         LEFT=$(( LEFT - 1 ))
         herdr pane rename "$PANE" "$NAME"
-        herdr pane run "$PANE" "$CLAUDE --append-system-prompt-file '$STYLE' '$PROMPT'"
+        herdr pane run "$PANE" "$AGENT $APPEND '$STYLE' $INPUT"
         echo "workspace $WS: $PANE ($NAME)"
     done
 
@@ -68,24 +86,33 @@ demo-round1 name="round1":
 
     DIR="{{justfile_directory()}}"
     PROMPT="explain the brooks no silver bullet paper: $DIR/ai_docs/brooks-no-silver-bullet.md"
-    SETTINGS="{\"statusLine\":{\"type\":\"command\",\"command\":\"$DIR/statusline.sh\"}}"
-    CLAUDE="claude --settings '$SETTINGS' --dangerously-skip-permissions --model 'opus' {{CLAUDE_ISO}}"
+    if [ "{{harness}}" = pi ]; then
+        AGENT="pi --model 'anthropic/{{MODEL}}' {{PI_ISO}}"
+        APPEND="--append-system-prompt"
+        # @file puts the paper in the first message, so pi never pages through it with read
+        INPUT="'@$DIR/ai_docs/brooks-no-silver-bullet.md' 'explain the brooks no silver bullet paper'"
+    else
+        SETTINGS="{\"statusLine\":{\"type\":\"command\",\"command\":\"$DIR/statusline.sh\"}}"
+        AGENT="claude --settings '$SETTINGS' --dangerously-skip-permissions --model '{{MODEL}}' {{CLAUDE_ISO}}"
+        APPEND="--append-system-prompt-file"
+        INPUT="'$PROMPT'"
+    fi
 
     herdr workspace list | jq -r '.result.workspaces[] | select(.label == "demo-{{name}}") | .workspace_id' | while read -r OLD; do herdr workspace close "$OLD"; done
 
     read -r WS PANE < <(herdr workspace create --cwd "$DIR" --label "demo-{{name}}" | jq -r '.result | "\(.workspace.workspace_id) \(.root_pane.pane_id)"')
     herdr pane rename "$PANE" stock
-    herdr pane run "$PANE" "$CLAUDE '$PROMPT'"
+    herdr pane run "$PANE" "$AGENT $INPUT"
     echo "workspace $WS: $PANE (stock)"
 
     PANE=$(herdr pane split "$PANE" --direction right --ratio 0.5 --cwd "$DIR" --no-focus | jq -r '.result.pane.pane_id')
     herdr pane rename "$PANE" communication_style
-    herdr pane run "$PANE" "$CLAUDE --append-system-prompt-file '$DIR/system_prompts/communication_style.md' '$PROMPT'"
+    herdr pane run "$PANE" "$AGENT $APPEND '$DIR/system_prompts/communication_style.md' $INPUT"
     echo "workspace $WS: $PANE (communication_style)"
 
 # Demo round 2: stock + every system prompt in system_prompts/. <name> labels the workspace.
 demo-round2 name="round2":
-    @just compare "{{name}}"
+    @just opus={{opus}} harness={{harness}} compare "{{name}}"
 
 # ------------------------------------------------------------------
 # Pi coding agent — mirrors the Claude Code recipes above
@@ -93,11 +120,11 @@ demo-round2 name="round2":
 
 # Pi + one system prompt from system_prompts/ (caveman_style | communication_style | eli5_style).
 tuned-pi style="communication_style":
-    pi --model "anthropic/claude-opus-5" {{PI_ISO}} --append-system-prompt "{{justfile_directory()}}/system_prompts/{{style}}.md"
+    pi --model "anthropic/{{MODEL}}" {{PI_ISO}} --append-system-prompt "{{justfile_directory()}}/system_prompts/{{style}}.md"
 
 # Pi with no system prompt (the control).
 stock-pi:
-    pi --model "anthropic/claude-opus-5" {{PI_ISO}}
+    pi --model "anthropic/{{MODEL}}" {{PI_ISO}}
 
 # Pi stock + every system prompt, side by side in herdr. <name> labels the workspace.
 pi-compare name="demo":
@@ -106,8 +133,9 @@ pi-compare name="demo":
 
     # setup prompt
     DIR="{{justfile_directory()}}"
-    PROMPT="explain the brooks no silver bullet paper: $DIR/ai_docs/brooks-no-silver-bullet.md"
-    PI="pi --model 'anthropic/claude-opus-5' {{PI_ISO}}"
+    # @file puts the paper in the first message, so pi never pages through it with read
+    INPUT="'@$DIR/ai_docs/brooks-no-silver-bullet.md' 'explain the brooks no silver bullet paper'"
+    PI="pi --model 'anthropic/{{MODEL}}' {{PI_ISO}}"
 
     # clear previous herdr
     herdr workspace list | jq -r '.result.workspaces[] | select(.label == "pi-compare-{{name}}") | .workspace_id' | while read -r OLD; do herdr workspace close "$OLD"; done
@@ -119,7 +147,7 @@ pi-compare name="demo":
 
     read -r WS PANE < <(herdr workspace create --cwd "$DIR" --label "pi-compare-{{name}}" | jq -r '.result | "\(.workspace.workspace_id) \(.root_pane.pane_id)"')
     herdr pane rename "$PANE" stock
-    herdr pane run "$PANE" "$PI '$PROMPT'"
+    herdr pane run "$PANE" "$PI $INPUT"
     echo "workspace $WS: $PANE (stock, raw)"
 
     for STYLE in "${STYLES[@]}"; do
@@ -128,6 +156,6 @@ pi-compare name="demo":
         PANE=$(herdr pane split "$PANE" --direction right --ratio "$RATIO" --cwd "$DIR" --no-focus | jq -r '.result.pane.pane_id')
         LEFT=$(( LEFT - 1 ))
         herdr pane rename "$PANE" "$NAME"
-        herdr pane run "$PANE" "$PI --append-system-prompt '$STYLE' '$PROMPT'"
+        herdr pane run "$PANE" "$PI --append-system-prompt '$STYLE' $INPUT"
         echo "workspace $WS: $PANE ($NAME)"
     done
